@@ -1,3 +1,5 @@
+require 'nokoogiri'
+
 class COVID19::CLI
 
   def call
