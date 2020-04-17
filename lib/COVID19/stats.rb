@@ -2,7 +2,7 @@ class COVID19::Stats
   attr_accessor :cases, :deaths, :recoveries, :active, :date
 
   def self.scrape_world
-    page = Nokogiri::HTML(open(https://worldometers.info/coronavirus))
+    page = Nokogiri::HTML(open('https://worldometers.info/coronavirus'))
     binding.pry
     countries = []
     page.css("div.label-counter").each do |country|
