@@ -1,6 +1,7 @@
-require 'nokoogiri'
+require 'nokogiri'
 
 class COVID19::CLI
+  BASE_PATH = "https://www.worldometers.info/coronavirus"
 
   def call
     puts "Hello, here you can find up-to-date information on cases of COVID-19"
