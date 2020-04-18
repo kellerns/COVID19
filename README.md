@@ -1,8 +1,12 @@
 # COVID19
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/COVID19`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to the COVID19 gem. This gem will allow the user to access up-to-date statistics about the 2020 coronavirus pandemic.
 
-TODO: Delete this and the text above, and describe your gem
+The user will be given a menu with options and suggestions to help them get started.
+Worldwide statistics are given through the default commands, but the user has the option to search country-specific statistics as well.
+
+If the option for a country was chosen, the user will encounter a similar menu to the one they were presented with earlier, but will now be able to access statistics per country.
+The user will also be able to return to the main menu and search for different countries without having to restart the program.
 
 ## Installation
 
@@ -22,7 +26,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Run the gem and you will be given a menu and prompted to give the program the information that you are looking for.
+
+The default options given will allow you to access worldwide statistics
 
 ## Development
 
