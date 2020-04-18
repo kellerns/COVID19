@@ -28,7 +28,20 @@ Or install it yourself as:
 
 Run the gem and you will be given a menu and prompted to give the program the information that you are looking for.
 
-The default options given will allow you to access worldwide statistics
+The default options given will allow you to access worldwide statistics, while the 'country' option will provide the user with the ability to search statistics for an individual country.
+
+For choosing certain countries, certain verbiage must be used and is listed below in the format of 'country : input' (Country input is case-sensitive):
+
+United States : 'USA'
+United Kingdom : 'UK'
+South Korea : 'S. Korea'
+United Arab Emirates : 'UAE'
+Democratic Republic of the Congo : 'DRC'
+Central African Republic : 'CAR'
+
+Failing to type a valid country will result in a message tthat will direct the user to the README.
+
+
 
 ## Development
 

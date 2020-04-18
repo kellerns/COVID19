@@ -45,18 +45,31 @@ class COVID19::CLI
         when "country"
           country_input = nil
           while true
-            puts "About which country would you like more information?"
+            puts "About which country would you like more information?\n(Reminder: this section is case-sensitive and in some cases there are specific countries that have a shorthand method of writing them. Review the README for more info)"
             country_input = gets.strip
-            if country_input == "exit"
-              break
+            if COVID19::Country.find_by_name(country_input) || country_input == "exit"
+              case country_input
+                when "exit"
+                  break
+                else
+                  country_menu(country_input)
+                  break
+              end
             else
-              puts "you chose #{country_input}"
-              country_menu(country_input)
-              break
+              puts "Invalid country name. Make sure you entered the correct case-sensitive country name, or the correct shorthand notation for certain countries (specific countries are listed in the README)."
             end
+            # if country_input == "exit"
+            #   break
+            # else
+            #   country_menu(country_input)
+            #   break
+            # end
           end
           list_options
-        when "options"
+        when "exit"
+          break
+        else
+          puts "You have entered an invalid option, please review the menu and select another option."
           list_options
       end
     end
@@ -79,13 +92,13 @@ class COVID19::CLI
         input = gets.strip.downcase
         case input
           when "cases"
-            puts "There have been #{my_country.cases} confirmed COVID-19 cases in #{my_country.name}."
+            puts "There have been #{my_country.cases} confirmed COVID-19 cases in #{my_country.name}.\nWhat other information would you like about #{my_country.name}? To return to worldwide statistics, type 'exit'."
           when "deaths"
-            puts "There have been #{my_country.deaths} COVID-19-related deaths in #{my_country.name}."
+            puts "There have been #{my_country.deaths} COVID-19-related deaths in #{my_country.name}.\nWhat other information would you like about #{my_country.name}? To return to worldwide statistics, type 'exit'."
           when "recoveries"
-            puts "There have been #{my_country.recoveries} of total COVID-19 recoveries in #{my_country.name}."
+            puts "There have been #{my_country.recoveries} of total COVID-19 recoveries in #{my_country.name}.\nWhat other information would you like about #{my_country.name}? To return to worldwide statistics, type 'exit'."
           when "active"
-            puts "There are currently #{my_country.active} active COVID-19 cases in #{my_country.name}."
+            puts "There are currently #{my_country.active} active COVID-19 cases in #{my_country.name}.\nWhat other information would you like about #{my_country.name}? To return to worldwide statistics, type 'exit'."
           when "menu"
             break
           when "options"
