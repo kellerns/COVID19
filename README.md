@@ -39,7 +39,7 @@ United Arab Emirates : 'UAE'
 Democratic Republic of the Congo : 'DRC'
 Central African Republic : 'CAR'
 
-Failing to type a valid country will result in a message tthat will direct the user to the README.
+Failing to type a valid country will result in a message that will direct the user to the README.
 
 
 

@@ -101,8 +101,10 @@ class COVID19::CLI
             puts "There are currently #{my_country.active} active COVID-19 cases in #{my_country.name}.\nWhat other information would you like about #{my_country.name}? To return to worldwide statistics, type 'exit'."
           when "menu"
             break
-          when "options"
-            list_options
+          when "exit"
+            break
+          else
+            puts "You have entered an invalid option, please review the menu and select another option."
         end
       end
   end
