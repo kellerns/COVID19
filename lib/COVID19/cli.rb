@@ -58,12 +58,6 @@ class COVID19::CLI
             else
               puts "Invalid country name. Make sure you entered the correct case-sensitive country name, or the correct shorthand notation for certain countries (specific countries are listed in the README)."
             end
-            # if country_input == "exit"
-            #   break
-            # else
-            #   country_menu(country_input)
-            #   break
-            # end
           end
           list_options
         when "exit"
