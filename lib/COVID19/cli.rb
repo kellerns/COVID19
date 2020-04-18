@@ -16,7 +16,7 @@ class COVID19::CLI
       For total worldwide recoveries, type 'recoveries'.
       For total worldwide active cases, type 'active'.
       To search these statistics per country, type 'country'.
-      To return to the country information page, type 'exit'
+      To exit, type 'exit'
     DOC
   end
 
@@ -29,22 +29,31 @@ class COVID19::CLI
         when "cases"
           world_cases = COVID19::Country.find_by_name('World')
           puts "There have been #{world_cases.cases} confirmed COVID-19 cases worldwide."
+          list_options
         when "deaths"
           world_deaths = COVID19::Country.find_by_name('World')
           puts "There have been #{world_deaths.deaths} COVID-19-related deaths worldwide."
+          list_options
         when "recoveries"
           world_recoveries = COVID19::Country.find_by_name('World')
           puts "There have been #{world_recoveries.recoveries} of total COVID-19 recoveries worldwide."
+          list_options
         when "active"
           world_active = COVID19::Country.find_by_name('World')
           puts "There are currently #{world_active.active} active COVID-19 cases worldwide."
+          list_options
         when "country"
-          puts "About which country would you like more information?"
           country_input = nil
-          country_input = gets.strip
-          while country_input != "exit"
-            puts "you chose #{country_input}"
-            country_menu(country_input)
+          while true
+            puts "About which country would you like more information?"
+            country_input = gets.strip
+            if country_input == "exit"
+              break
+            else
+              puts "you chose #{country_input}"
+              country_menu(country_input)
+              break
+            end
           end
           list_options
         when "options"
@@ -59,7 +68,7 @@ class COVID19::CLI
         For total deaths in #{c_input}, type 'deaths'.
         For total recoveries in #{c_input}, type 'recoveries'.
         For total active cases in #{c_input}, type 'active'.
-        To select a different country, type 'country'.
+        To return to the main menu, type 'menu'.
         To exit, type 'exit'.
       DOC
       my_country = COVID19::Country.find_by_name(c_input)
@@ -77,14 +86,8 @@ class COVID19::CLI
             puts "There have been #{my_country.recoveries} of total COVID-19 recoveries in #{my_country.name}."
           when "active"
             puts "There are currently #{my_country.active} active COVID-19 cases in #{my_country.name}."
-          when "country"
-            puts "Which country would you like more information about?"
-            country_input = nil
-            country_input = gets.strip
-            while country_input != "exit"
-              country_menu(country_input)
-            end
-            puts "This section will prompt the user to type in a country name, then repeat the above menu for the specific country."
+          when "menu"
+            break
           when "options"
             list_options
         end
